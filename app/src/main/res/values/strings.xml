@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Marvel</string>
+    <string name="hqs">HQs</string>
+    <string name="gif">gif</string>
+    <string name="imagem_do_personagem">imagem do personagem</string>
+    <string name="imagem_do_favorito">imagem do favorito</string>
+    <string name="personagens">Personagens</string>
+    <string name="imagem_da_hq">imagem da hq</string>
+    <string name="favoritar">favoritar</string>
+    <string name="favoritos">favoritos</string>
+    <string name="hqs_favoritas">HQs Favoritas</string>
+    <string name="botao_voltar">botao voltar</string>
+</resources>
