@@ -62,9 +62,8 @@ val Module = module {
     }
         .also { Log.d("AppModule", "Instância do ComicViewModel criada") }
 
-    viewModel { (comicId: Int) ->
-        Log.d("AppModule", "Criando instância do CharacterViewModel com comicId: $comicId")
-        CharacterViewModel(get(), comicId, get())
+    viewModel {
+        CharacterViewModel(get(), get())
     }
 
     viewModel { FavoriteComicsViewModel(get()) }

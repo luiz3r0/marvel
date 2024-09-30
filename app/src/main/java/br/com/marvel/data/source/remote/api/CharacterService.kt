@@ -1,7 +1,6 @@
 package br.com.marvel.data.source.remote.api
 
 import br.com.marvel.data.model.CharacterResponseModel
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

@@ -8,7 +8,7 @@ import br.com.marvel.data.source.local.db.entities.FavoriteComicsEntity
 import br.com.marvel.domain.usecase.favoritecomics.FavoriteComicsUseCaseInterface
 
 class FavoriteComicsViewModel(
-    private val favoriteComicsUseCaseInterface: FavoriteComicsUseCaseInterface
+    favoriteComicsUseCaseInterface: FavoriteComicsUseCaseInterface
 ) : ViewModel() {
 
     // LiveData que representa a lista de quadrinhos favoritos

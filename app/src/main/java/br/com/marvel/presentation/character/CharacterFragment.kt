@@ -19,14 +19,11 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.core.parameter.parametersOf
 
 class CharacterFragment : Fragment() {
 
     // Inicializa o ViewModel associado ao fragmento, passando o comicId recebido nos argumentos.
-    private val characterViewModel: CharacterViewModel by viewModel {
-        parametersOf(arguments?.getInt("comicId"))
-    }
+    private val characterViewModel: CharacterViewModel by viewModel()
 
     // Binding do layout para o fragmento, usando DataBinding.
     private lateinit var fragmentCharacterBinding: FragmentCharacterBinding
@@ -102,7 +99,7 @@ class CharacterFragment : Fragment() {
 
     // Inicia o carregamento da lista de personagens ao abrir o fragmento.
     private fun startLoadCharacters() {
-        characterViewModel.loadCharacters(requireContext())
+        characterViewModel.loadCharacters(requireContext(), requireArguments().getInt("comicId"))
         Log.d("CharacterFragment", "Carregamento dos personagens iniciado.")
     }
 
@@ -131,7 +128,7 @@ class CharacterFragment : Fragment() {
             Snackbar.LENGTH_INDEFINITE
         ).setAction("Atualizar") {
             Log.d("CharacterFragment", "Tentativa de atualizar após erro de API.")
-            characterViewModel.loadCharacters(requireContext()) // Tenta recarregar os personagens.
+            characterViewModel.loadCharacters(requireContext(), requireArguments().getInt("comicId")) // Tenta recarregar os personagens.
         }.setActionTextColor(ContextCompat.getColor(requireContext(), R.color.snackbaractiontextcolor))
 
         snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
@@ -149,7 +146,7 @@ class CharacterFragment : Fragment() {
             Snackbar.LENGTH_INDEFINITE
         ).setAction("Atualizar") {
             Log.d("CharacterFragment", "Tentativa de atualizar após erro de conexão.")
-            characterViewModel.loadCharacters(requireContext()) // Tenta novamente o carregamento.
+            characterViewModel.loadCharacters(requireContext(), requireArguments().getInt("comicId")) // Tenta novamente o carregamento.
         }.setActionTextColor(ContextCompat.getColor(requireContext(), R.color.snackbaractiontextcolor))
 
         snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)

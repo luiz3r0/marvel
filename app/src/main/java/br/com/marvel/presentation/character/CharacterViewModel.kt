@@ -19,7 +19,6 @@ import kotlinx.coroutines.launch
 
 class CharacterViewModel(
     private val characterUseCaseInterface: CharacterUseCaseInterface,
-    private val comicId: Int,
     private val internetAvailabilityUtilsInterface: InternetAvailabilityUtilsInterface
 ) : ViewModel() {
 
@@ -53,7 +52,7 @@ class CharacterViewModel(
     }
 
     // Função que carrega os personagens a partir do UseCase, utilizando o comicId fornecido.
-    fun loadCharacters(context: Context) {
+    fun loadCharacters(context: Context, comicId: Int) {
         viewModelScope.launch {
             // Verifica se a internet está disponível antes de fazer a chamada de API.
             if (internetAvailabilityUtilsInterface.isInternetAvailable(context)) {
